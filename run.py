@@ -11,9 +11,8 @@ def load_emolex():
     with open('data/NRC-Emotion-Lexicon-Wordlevel-v0.92.txt') as f:
         for line in f:
             word, emotion, present = line.rstrip('\n').split('\t')
-            if emotion in ('positive', 'negative'): # only look at Plutchik emotions, not +/- sentiment
+            if emotion in ('positive', 'negative'):
                 continue
-                        
             if word not in lexicon:
                 lexicon[word] = {emotion: bool(int(present))}
             else:
